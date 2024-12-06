@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="w-full max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+    <div class="bg-blue-500 text-white px-6 py-4">
+        <h2 class="text-xl font-bold text-center">Quiz Result</h2>
+    </div>
+    
+    <div class="p-6 text-center">
+        {% if is_correct %}
+        <div class="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-md mb-6">
+            <h3 class="text-2xl font-bold mb-2">Correct! 🎉</h3>
+            <p class="text-green-800">Excellent work answering the question correctly.</p>
+        </div>
+        {% else %}
+        <div class="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-md mb-6">
+            <h3 class="text-2xl font-bold mb-2">Incorrect 😔</h3>
+            <p class="text-red-800">The correct answer was Option {{ question.correct_answer|upper }}.</p>
+        </div>
+        {% endif %}
+
+        <div class="flex justify-center space-x-4 mt-6">
+            <a href="{% url 'quiz' %}" class="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300 ease-in-out transform hover:-translate-y-1">
+                Answer More Questions
+            </a>
+            <a href="{% url 'dashboard' %}" class="px-6 py-3 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition duration-300 ease-in-out transform hover:-translate-y-1">
+                Back to Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

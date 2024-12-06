@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Conceptile Quiz App</title>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': {
+                            500: '#3498db',
+                            600: '#2980b9'
+                        },
+                        'background': '#f4f4f5',
+                        'text-color': '#333333'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col bg-background text-text-color">
+    <div class="flex flex-col min-h-screen bg-white shadow-lg">
+        <header class="bg-blue-500 text-white text-center py-4">
+            <h1 class="text-2xl font-bold">Conceptile Quiz App</h1>
+        </header>
+        
+        <main class="flex-grow px-4 py-6 md:px-8 lg:px-12 overflow-y-auto">
+            {% block content %}{% endblock %}
+        </main>
+        
+        <footer class="bg-blue-800 text-white text-center py-4">
+            <p class="text-sm">&copy; 2024 Conceptile Quiz App. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
